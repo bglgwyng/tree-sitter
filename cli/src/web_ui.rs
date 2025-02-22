@@ -15,7 +15,8 @@ macro_rules! resource {
             if let Some(tree_sitter_dir) = tree_sitter_dir {
                 fs::read(tree_sitter_dir.join($path)).unwrap()
             } else {
-                include_bytes!(concat!("../../", $path)).to_vec()
+                panic!("FIXME: revert this");
+                // include_bytes!(concat!("../../", $path)).to_vec()
             }
         }
 
@@ -24,7 +25,8 @@ macro_rules! resource {
             if let Some(tree_sitter_dir) = tree_sitter_dir {
                 fs::read(tree_sitter_dir.join($path)).unwrap()
             } else {
-                include_bytes!(concat!("../../", $path)).to_vec()
+                panic!("FIXME: revert this");
+                // include_bytes!(concat!("../../", $path)).to_vec()
             }
         }
     };

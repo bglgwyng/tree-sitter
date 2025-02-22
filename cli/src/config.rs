@@ -59,11 +59,13 @@ impl Config {
 
         let binary_path = tree_sitter_dir.join("bin");
         self.binary_directory = binary_path;
-        fs::create_dir_all(&self.binary_directory).unwrap_or_else(|error| {
-            panic!(
-                "Could not find or create parser binary directory {:?}. Error: {}",
-                self.binary_directory, error
-            )
-        });
+
+        // FIXME: This is a temporary fix to avoid the permission error in nix sandbox.
+        // fs::create_dir_all(&self.binary_directory).unwrap_or_else(|error| {
+        //     panic!(
+        //         "Could not find or create parser binary directory {:?}. Error: {}",
+        //         self.binary_directory, error
+        //     )
+        // });
     }
 }
